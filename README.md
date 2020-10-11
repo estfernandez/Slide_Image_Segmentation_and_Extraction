@@ -40,7 +40,7 @@ The `main.R` script is the only file that can be executed and contains the code 
   - `path` - String, location to save outputs to.
   - `display` - Boolean, whether to create a plot of the extraction results.
 
-Other files in `code` directory can be used to read tumor region heatmaps and display them.
+Other files in `code` directory can be used to read tumor region heatmaps, display them, and to separately segment tissue samples or extract tumor regions.
 
 ## Contact Information
 
