@@ -33,7 +33,7 @@ The `main.R` script is the only file that can be executed and contains the code 
 
 - `slide.segmentation` - Main function to process the sample data with the following arguments:
   - `image` - Integer Matrix, represents the reconstructed heatmap.
-  - `id` - Named Integer Vector, identification for slide image with the entries `cohort`, `patient.id`, and `slide.id`.
+  - `id` - Named Integer Vector, identification with the entries `cohort`, `patient.id`, and `slide.id`.
   - `key` - Named Integer Vector, represents the heatmap regions.
   - `cutoff` - Integer, pixel count to filter out small tumor regions.
   - `binary` - Boolean, whether the image is binary.
