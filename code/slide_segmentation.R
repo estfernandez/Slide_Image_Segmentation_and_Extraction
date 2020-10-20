@@ -205,18 +205,25 @@ create.polygon.chain <- function(image, k = 3)
       stop("NonPolygon: a boundary could not be formed into a polygon chain")
     }
 
-    # obtain starting point
-    P1 <- sequence.starting.point(P)
-
-    # shift the points
-    if (P1 > 1)
-    {
-      P <- shift.sequence(P, P1, closed = FALSE)
-    }
-
-    # close off chain
-    rbind(P, P[1, ])
+    # ensure proper starting point
+    validate.chain(P, closed = FALSE)
   })
+}
+
+# validate the chain by ensuring the proper starting point
+validate.chain <- function(P, closed = TRUE)
+{
+  # obtain starting point
+  P1 <- sequence.starting.point(P)
+
+  # shift the points
+  if (P1 > 1)
+  {
+    P <- shift.sequence(P, P1, closed = closed)
+  }
+
+  # close off chain
+  rbind(P, P[1, ])
 }
 
 # find the starting point of a sequence of points i.e. lowest left-most point
