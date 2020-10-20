@@ -58,7 +58,7 @@ slide.segmentation <- function(image, id, key = NULL, cutoff = 150, binary = FAL
       pdf(file = paste0(file, ".pdf"))
 
       # plot results
-      print(plot.extraction(image, res))
+      plot.extraction(image, res)
 
       # close file
       dev.off()
