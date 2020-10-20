@@ -1,18 +1,17 @@
 # PLOT EXTRACTION RESULTS ======================================================
 
-# plot the extraction results from slide segmenation procedure
-plot.extraction <- function(image, objects)
+# plot the extraction results from slide segmentation procedure
+plot.extraction <- function(image, results)
 {
-  # tumor regions
-  tumors <- Reduce("+", lapply(objects, `[[`, "tumors"))
-
-  # holes within tumors
-  holes <- Reduce("+", lapply(objects, `[[`, "holes"))
+  # merge objects
+  tumors <- Reduce("+", lapply(results, `[[`, "tumors"))
+  holes <- Reduce("+", lapply(results, `[[`, "holes"))
 
   # create figure
-  c(
-    "Tumors" = plot.pathology(tumors - holes, type = "segments", object = TRUE),
-    "Holes" = plot.pathology(holes, type = "segments", object = TRUE),
-    "Reconstructed Heatmap" = plot.pathology(image, type = "heatmap", object = TRUE)
-  )
+  figs <- c("Tumors" = plot.pathology(tumors, type = "segments", object = TRUE),
+            "Holes" = plot.pathology(holes, type = "segments", object = TRUE),
+            "Reconstructed Heatmap" = plot.pathology(image, type = "heatmap", object = TRUE))
+
+  # display plot
+  plot(figs)
 }
