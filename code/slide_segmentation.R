@@ -116,7 +116,7 @@ extract.tumors <- function(image, empty = 0, tumor = 1, normal = 2, cutoff = NUL
   polygon.chain <- create.polygon.chain(tumors, k = 3)
 
   # create list of objects
-  list(holes = holes, tumors = tumors, polygon.chain = polygon.chain)
+  list(holes = holes, tumors = tumors - holes, polygon.chain = polygon.chain)
 }
 
 # OPERATIONS ON IMAGES =========================================================
